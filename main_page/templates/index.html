@@ -1,0 +1,78 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link href="https://fonts.cdnfonts.com/css/monofonto" rel="stylesheet">
+	<link rel="stylesheet" href="{% static 'css/styleone.css' %}" type="text/css">
+	<style>
+		
+	</style>
+
+</head>
+
+	<div class="main">
+		<div ><img src="{% static 'images/main_img.png' %}" alt="Ля не прогрузилась картинка" ></div>
+		<div id="add_text" class="text_content" width="681px">
+			<b>
+				<ul>
+					<li style="--i:1;">Малі групи</li>
+					<li style="--i:2;">Офлайн заняття</li>
+					<li style="--i:3;">Гнучкий графік</li>
+					<li style="--i:4;">Індивідуальний підхід</li>
+				</ul>
+			</b>
+		</div>
+		<div id="form_tipo" class="text_content">
+
+
+
+				<p>Деталі можна дізнатися за телефоном:</p>
+				<h3 value="0669450677" class="tel_number">066-945-06-77<br><a href="tel:0669450677"><button id="copyBtn">
+					Зателефонувати</button></a></h3>
+
+				<p>Або залишити заявку за допомогою форми і ми зв'яжемося з Вами</p>
+			<form action="" method="post">
+			{% csrf_token %}
+			{% if messages %}
+			 	{% for message in messages %}
+
+					<h3 id="succ_msg">{{message}}</h3>
+
+				{% endfor %}
+			{% endif %}
+				<div class="mainFormBox">
+						<div class="FormBox">
+						<svg class="svg_icon" xmlns="http://www.w3.org/2000/svg" height="32" width="32" viewBox="0 0 448 512"><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg>
+
+					{{ form.name }}
+							<br>
+
+			<div class="FormBox">
+				<svg class="svg_icon" xmlns="http://www.w3.org/2000/svg" height="32" width="32" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
+
+				{{ form.phone}}
+
+			</div><div class="form-error">{{ form.errors }}</div>
+							{{form.captcha}}<br>
+
+				<br>
+							<div class="form-error-message">{{error}}</div>
+				<button type="submit">Відправити</button>
+					</div>
+					</div>
+			</form>
+	</div>
+
+		<div>
+			<iframe id="fr" src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d5499.033446615211!2d30.71477138228413!3d46.43845770125579!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x40c633b1d2ac278b%3A0xd07ddc63b1511852!2zMzVBLCDQstGD0LvQuNGG0Y8g0JzQsNGA0YjQsNC70LAg0JzQsNC70LjQvdC-0LLRgdGM0LrQvtCz0L4sIDM10JAsINCe0LTQtdGB0LAsINCe0LTQtdGB0YzQutCwINC-0LHQu9Cw0YHRgtGMLCA2NTAwMA!3m2!1d46.4392636!2d30.7166818!5e0!3m2!1suk!2sua!4v1704026228350!5m2!1suk!2sua" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" alt="Don`t work map"></iframe>
+		</div>
+	</div>
+
+
+
+</body>
+</html>

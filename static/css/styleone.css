@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@900&display=swap');
+
+*{
+	margin: 0;
+	padding: 0;
+
+}
+
+.box {
+  float: left;
+  height: 200px;
+  width: 200px;
+  margin-bottom: 15px;
+  border: 1px solid black;
+  clear: both;
+}
+
+.red {
+  background-color: red;
+}
+
+body{
+	position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.main{
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	align-items: center;
+  justify-content: center;
+}
+.main div{
+	margin: 2%;
+}
+
+#add_text ul{
+	align-items: center;
+  justify-content: center;
+margin-bottom: 20px;
+
+}
+#add_text ul li{
+	font-size: 1.5em;
+	margin-top: 7%;
+	margin-left: 10%;
+	opacity: 0;
+	animation: showconent 1s ease-in-out 1 forwards;
+  animation-delay: calc(0.6s * var(--i));
+}
+.form-error ul, .form-error-message {
+list-style: none;
+display: inline-block;
+padding: 0;
+color: #CC0000;
+background color:black;
+}
+#succ_msg{
+color: #49E11F;
+}
+@keyframes showconent{
+	from{
+		opacity: 0;
+		transform: translate(100px, 0px);
+		filter: blur(33px);
+	}
+	to{
+		opacity: 1;
+		transform: translate(0,0);
+		filter: blur(0);
+	}
+}
+.form_tipo{
+	font-size: 1.5em;
+}
+
+.text_content{
+  font-family: sans-serif;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+
+}
+.mainFormBox{
+	width: 100%;
+	margin-bottom: 20px;
+}
+.mainFormBox input
+{
+	border: none;
+	border-bottom: 2px solid #262626;
+	outline: none;
+	height: 40px;
+	color: #262626;
+	background: transparent;
+	font-size: 16px;
+	padding-left: 40px;
+}
+.FormBox{position: relative;}
+.svg_icon{
+	position: absolute;
+	top: 0;
+}
+.mainFormBox button{
+	border: none;
+	outline: none;
+	height: 40px;
+	width: 250px;
+	font-size: 16px;
+	font-family: sans-serif;
+	background: #ed292a;
+	color: #fff;
+	border-radius: 20px;
+	cursor: pointer;
+
+}
+
+.tel_number{
+	position: relative;
+
+	justify-content: center;
+	text-align: center;
+	margin-top: 10px;
+}
+
+.tel_number button{
+
+	margin-bottom: 10px;
+	padding: 8px;
+	background: #5784f5;
+	font-size: 18px;
+
+	border: none;
+	outline: none;
+	border-radius: 10px;
+	cursor: pointer;
+}
+
+@keyframes rotate {
+	100% {
+		transform: rotate(1turn);
+	}
+}
+
+#copyBtn {
+	font-weight: 400;
+	font-size: 18px;
+	box-sizing: border-box;
+	position: relative;
+	z-index: 0;
+	width: fit-content;
+	height: fit-content;
+	border-radius: 10px;
+	overflow: hidden;
+	padding: 1rem;
+	}
+
+#copyBtn::before {
+	box-sizing: border-box;
+		content: '';
+		position: absolute;
+		z-index: -2;
+		left: -50%;
+		top: -50%;
+		width: 400%;
+		height: 400%;
+		background-color: #399953;
+		background-repeat: no-repeat;
+		background-size: 50% 50%, 50% 50%;
+		background-position: 0 0, 100% 0, 100% 100%, 0 100%;
+		background-image: linear-gradient(#399953, #399953), linear-gradient(#fff, #fff), linear-gradient(#d53e33, #d53e33), linear-gradient(#fff, #fff);
+		animation: rotate 4s linear infinite;
+		padding: 2rem;
+	}
+	
+#copyBtn::after {
+		box-sizing: border-box;
+		content: '';
+		position: absolute;
+		z-index: -1;
+		left: 6px;
+		top: 6px;
+		width: calc(100% - 12px);
+		height: calc(100% - 12px);
+		background: white;
+		border-radius: 5px;
+		animation: opacityChange 3s infinite alternate;
+	}
+
+
+@keyframes opacityChange {
+	50% {
+		opacity:1;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+
+.tel_number.active button::before,
+.tel_number.active button::after{
+	
+	display: none;
+}
+.mainFormBox img{
+width:150px;
+}
+
+@media (max-width: 1280px),(max-height: 800px){
+	.main{width: fit-content;
+	align-items: center;
+  justify-content: center;}
+	body {
+
+  height: 100%;
+  min-width:100%;
+  min-height: 100%;
+  }
+  #form_tipo {align-items: center;
+  justify-content: center;
+  margin-left: 40px;}
+  p {
+    display: static;}
+  #succ_msg{
+color: #49E11F;
+}
+}
+
+@media screen and (max-width: 600px) {
+ p {
+    display: static;}
+  body {
+
+  height: 100%;
+  min-width:100%;
+  min-height: 100%;
+  }
+  #form_tipo {margin-left: 20px;}
+  .main{height:auto;
+	display: inline ;
+	align-items: center;
+  justify-content: center;
+}
+img{width: 400px;}
+#fr{width: 400px;}
+.main div{
+	margin: 0;
+}
+#succ_msg{
+color: #49E11F;
+}
+#add_text{
+	margin-left: 10px;
+}
+
+.mainFormBox input
+{
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.svg_icon{
+	padding-top: 10px;
+}
+}

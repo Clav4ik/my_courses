@@ -1,0 +1,27 @@
+version: "3.2"
+services:
+  web:
+    image: django_web
+    hostname: django_web
+    restart: on-failure
+    build:
+      context: .
+    command: python manage.py runserver 0.0.0.0:8000
+
+    volumes:
+      - .:/app
+    ports:
+      - 8000:8000
+    depends_on:
+        - rabbit
+
+  rabbit:
+    image: rabbitmq:3-management-alpine
+    container_name: rabbit
+    hostname: rabbit
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+    ports:
+        - 5672:5672
+        - 15672:15672
